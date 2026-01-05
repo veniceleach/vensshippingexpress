@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bill Payments & Messages - Vens Shipping Express</title>
+    <style>
+        body {margin:0; font-family: Arial, sans-serif; background-color:#fff; color:#333;}
+        .container {width:90%; max-width:900px; margin:0 auto; text-align:center;}
+        a {text-decoration:none; color:#fff;}
+        h1,h2 {margin:0.5em 0;}
+
+        /* Header */
+        header {background-color:#ff69b4; padding:15px 0;}
+        header .logo {color:#fff; font-size:2em; display:inline-block; margin-left:10px;}
+        header nav {float:right;}
+        header nav ul {list-style:none; margin:0; padding:0;}
+        header nav ul li {display:inline-block; margin-left:20px;}
+        header nav ul li a {color:#fff; font-weight:bold;}
+
+        /* Bills Table */
+        #bills {background-color:#ffe6f0; padding:60px 20px; border-radius:10px; margin-top:40px;}
+        table {width:100%; border-collapse:collapse; margin-top:20px;}
+        th, td {padding:12px; border-bottom:1px solid #ffb6c1; text-align:center;}
+        th {background-color:#ff1493; color:#fff;}
+        tr:hover {background-color:#ffb6c1;}
+        .btn {padding:8px 15px; border:none; border-radius:5px; background-color:#ff1493; color:#fff; cursor:pointer;}
+        .btn:hover {background-color:#ff69b4;}
+        .no-bills {margin-top:20px; font-size:1.2em; color:#ff1493;}
+        textarea {width:100%; padding:10px; border-radius:5px; border:none; margin-top:10px; font-size:1em;}
+        input[type="number"] {padding:10px; border-radius:5px; border:none; font-size:1em;}
+
+        /* Footer */
+        footer {background-color:#ff1493; color:#fff; text-align:center; padding:20px 0; margin-top:40px;}
+
+        /* Responsive */
+        @media(max-width:768px){
+            header nav {float:none; text-align:center; margin-top:10px;}
+            table, th, td {font-size:0.9em;}
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="container">
+        <h1 class="logo">Vens Shipping Express</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="dashboard.html">Dashboard</a></li>
+                <li><a href="track.html">Track Shipment</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<section id="bills" class="container">
+    <h2>Bill Payments & Messages</h2>
+    <p>Pay your pending bills and send messages to Vens Shipping Express.</p>
+
+    <!-- Table of bills -->
+    <table id="bills-table" style="display:none;">
+        <thead>
+            <tr>
+                <th>Bill ID</th>
+                <th>Description</th>
+                <th>Amount (USD)</th>
+                <th>Status</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody id="bills-body">
+            <!-- Dynamic rows go here -->
+        </tbody>
+    </table>
+
+    <!-- No bills message -->
+    <div id="no-bills-msg" class="no-bills">No pending bills.</div>
+
+    <!-- Send a message -->
+    <div style="margin-top:40px; text-align:left;">
+        <h3>Send a Message</h3>
+        <form id="message-form">
+            <textarea name="message" placeholder="Write your message here..." required></textarea>
+            <button type="submit" class="btn" style="margin-top:10px;">Send Message</button>
+        </form>
+    </div>
+</section>
+
+<footer>
+    <div class="container">
+        <p>&copy; 2026 Vens Shipping Express. All rights reserved.</p>
+    </div>
+</footer>
+
+<script>
+    // Example: bills data from customer (replace with real data)
+    const bills = [
+        // Uncomment and add objects here when bills exist
+        // {id: "BILL001", description: "Shipping Fee", amount: 50, status: "Unpaid"},
+    ];
+
+    const table = document.getElementById('bills-table');
+    const tbody = document.getElementById('bills-body');
+    const noMsg = document.getElementById('no-bills-msg');
+
+    if(bills.length > 0){
+        table.style.display = 'table';
+        noMsg.style.display = 'none';
+        bills.forEach(bill => {
+            const tr = document.createElement('tr');
+            tr.innerHTML = `
+                <td>${bill.id}</td>
+                <td>${bill.description}</td>
+                <td>${bill.amount}</td>
+                <td>${bill.status}</td>
+                <td><button class="btn">Pay Now</button></td>
+            `;
+            tbody.appendChild(tr);
+        });
+    }
+
+    // Handle message form submission (currently just shows alert)
+    const messageForm = document.getElementById('message-form');
+    messageForm.addEventListener('submit', function(e){
+        e.preventDefault();
+        const message = this.message.value.trim();
+        if(message){
+            alert("Message sent: " + message);
+            this.reset();
+        }
+    });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register - Vens Shipping Express</title>
+    <style>
+        body {margin:0; font-family: Arial, sans-serif; background-color:#fff; color:#333;}
+        .container {width:90%; max-width:600px; margin:0 auto; text-align:center;}
+        a {text-decoration:none; color:#fff;}
+        h1,h2 {margin:0.5em 0;}
+
+        /* Header */
+        header {background-color:#ff69b4; padding:15px 0;}
+        header .logo {color:#fff; font-size:2em; display:inline-block; margin-left:10px;}
+        header nav {float:right;}
+        header nav ul {list-style:none; margin:0; padding:0;}
+        header nav ul li {display:inline-block; margin-left:20px;}
+        header nav ul li a {color:#fff; font-weight:bold;}
+
+        /* Form Styles */
+        form {background-color:#ffe6f0; padding:40px 20px; border-radius:10px; margin-top:40px; text-align:left;}
+        .form-step {display:none;}
+        .form-step.active {display:block;}
+        label {display:block; margin-top:15px; font-weight:bold; color:#ff1493;}
+        input, select {padding:12px; width:95%; margin-top:5px; border:none; border-radius:5px; font-size:1em;}
+        button {padding:12px 25px; border:none; border-radius:5px; background-color:#ff1493; color:#fff; font-weight:bold; cursor:pointer; margin-top:20px;}
+        button:hover {background-color:#ff69b4;}
+        .step-buttons {display:flex; justify-content:space-between; margin-top:20px;}
+        .step-buttons button {width:48%;}
+        .terms {height:100px; overflow:auto; border:1px solid #ffb6c1; padding:10px; margin-top:10px; border-radius:5px; background-color:#fff0f5;}
+        .success-msg {color:#ff1493; font-weight:bold; margin-top:20px;}
+
+        /* Footer */
+        footer {background-color:#ff1493; color:#fff; text-align:center; padding:20px 0; margin-top:40px;}
+
+        /* Responsive */
+        @media(max-width:768px){
+            header nav {float:none; text-align:center; margin-top:10px;}
+            input, select {width:100%;}
+            .step-buttons {flex-direction:column;}
+            .step-buttons button {width:100%; margin-bottom:10px;}
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="container">
+        <h1 class="logo">Vens Shipping Express</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="login.html">Login</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<section class="container">
+    <h2>Create an Account</h2>
+    <form id="register-form">
+        <!-- Step 1: Account Info -->
+        <div class="form-step active">
+            <h3>Account Information</h3>
+            <label for="username">Username</label>
+            <input type="text" id="username" name="username" required>
+
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" required>
+
+            <label for="confirm-password">Confirm Password</label>
+            <input type="password" id="confirm-password" name="confirm-password" required>
+
+            <label for="first-name">First Name</label>
+            <input type="text" id="first-name" name="first-name" required>
+
+            <label for="last-name">Last Name</label>
+            <input type="text" id="last-name" name="last-name" required>
+
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
+        </div>
+
+        <!-- Step 2: Customs Info -->
+        <div class="form-step">
+            <h3>Customs Information</h3>
+            <label for="trn">TRN</label>
+            <input type="text" id="trn" name="trn" required>
+
+            <label for="address">Address</label>
+            <input type="text" id="address" name="address" required>
+
+            <label for="city">City/Town</label>
+            <input type="text" id="city" name="city" required>
+
+            <label for="parish">Parish</label>
+            <select id="parish" name="parish" required>
+                <option value="">Select Parish</option>
+                <option value="Kingston">Kingston</option>
+                <option value="St. Andrew">St. Andrew</option>
+                <option value="St. Catherine">St. Catherine</option>
+                <option value="Clarendon">Clarendon</option>
+                <option value="Manchester">Manchester</option>
+                <option value="St. Elizabeth">St. Elizabeth</option>
+                <option value="Westmoreland">Westmoreland</option>
+                <option value="Hanover">Hanover</option>
+                <option value="St. James">St. James</option>
+                <option value="Trelawny">Trelawny</option>
+                <option value="St. Ann">St. Ann</option>
+                <option value="St. Mary">St. Mary</option>
+                <option value="Portland">Portland</option>
+                <option value="St. Thomas">St. Thomas</option>
+            </select>
+
+            <label for="custom-contact">Contact Number</label>
+            <input type="text" id="custom-contact" name="custom-contact" required>
+        </div>
+
+        <!-- Step 3: Terms and Conditions -->
+        <div class="form-step">
+            <h3>Terms & Conditions</h3>
+            <div class="terms">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. By clicking "Agree", you accept the terms and conditions of using Vens Shipping Express.</p>
+            </div>
+            <label>
+                <input type="checkbox" id="agree" required> I agree to the terms and conditions
+            </label>
+        </div>
+
+        <!-- Navigation Buttons -->
+        <div class="step-buttons">
+            <button type="button" id="prev-btn" style="display:none;">Previous</button>
+            <button type="button" id="next-btn">Next</button>
+        </div>
+
+        <div class="success-msg" id="success-msg" style="display:none;">
+            Registration successful! You can now <a href="login.html">login</a>.
+        </div>
+    </form>
+</section>
+
+<footer>
+    <div class="container">
+        <p>&copy; 2026 Vens Shipping Express. All rights reserved.</p>
+    </div>
+</footer>
+
+<script>
+    const form = document.getElementById('register-form');
+    const steps = document.querySelectorAll('.form-step');
+    const nextBtn = document.getElementById('next-btn');
+    const prevBtn = document.getElementById('prev-btn');
+    const successMsg = document.getElementById('success-msg');
+    let currentStep = 0;
+
+    function showStep(index){
+        steps.forEach((step,i)=> step.classList.toggle('active', i===index));
+        prevBtn.style.display = index === 0 ? 'none' : 'inline-block';
+        nextBtn.textContent = index === steps.length-1 ? 'Submit' : 'Next';
+    }
+
+    nextBtn.addEventListener('click', ()=>{
+        // Step 1: Validate passwords match
+        if(currentStep === 0){
+            const password = form['password'].value.trim();
+            const confirm = form['confirm-password'].value.trim();
+            if(password !== confirm){
+                alert("Passwords do not match!");
+                return;
+            }
+        }
+
+        // Step 3: Terms agreement
+        if(currentStep === steps.length-1){
+            if(!form['agree'].checked){
+                alert("You must agree to the terms and conditions.");
+                return;
+            }
+
+            // Collect user data
+            const userData = {
+                username: form['username'].value.trim(),
+                password: form['password'].value.trim(),
+                firstName: form['first-name'].value.trim(),
+                lastName: form['last-name'].value.trim(),
+                email: form['email'].value.trim(),
+                trn: form['trn'].value.trim(),
+                address: form['address'].value.trim(),
+                city: form['city'].value.trim(),
+                parish: form['parish'].value,
+                contact: form['custom-contact'].value.trim()
+            };
+
+            // Get existing users
+            let users = JSON.parse(localStorage.getItem('vensUsers')) || [];
+
+            // Check for duplicate email
+            if(users.some(u=>u.email === userData.email)){
+                alert("An account with this email already exists.");
+                return;
+            }
+
+            // Save user
+            users.push(userData);
+            localStorage.setItem('vensUsers', JSON.stringify(users));
+
+            // Show success
+            successMsg.style.display = 'block';
+            form.reset();
+            currentStep = 0;
+            showStep(currentStep);
+            return;
+        }
+
+        currentStep++;
+        showStep(currentStep);
+    });
+
+    prevBtn.addEventListener('click', ()=>{
+        currentStep--;
+        showStep(currentStep);
+    });
+
+    showStep(currentStep);
+</script>
+
+</body>
+</html>

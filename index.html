@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vens Shipping Express</title>
+    <style>
+        body {margin:0; font-family: Arial, sans-serif; background-color:#fff; color:#333;}
+        .container {width:90%; max-width:1200px; margin:0 auto;}
+        a {text-decoration:none; color:#fff;}
+        h1,h2,h3 {margin:0.5em 0;}
+
+        /* Header */
+        header {background-color:#ff69b4; padding:15px 0;}
+        header .logo {color:#fff; font-size:2em; display:inline-block; margin-left:10px;}
+        header nav {float:right;}
+        header nav ul {list-style:none; margin:0; padding:0;}
+        header nav ul li {display:inline-block; margin-left:20px;}
+
+        /* Hero */
+        .hero {background-color:#ffe6f0; text-align:center; padding:80px 20px;}
+        .hero h2 {font-size:2.5em; color:#ff1493;}
+        .hero p {font-size:1.2em; margin:15px 0 30px;}
+        .hero .btn {background-color:#ff1493; padding:15px 30px; border-radius:5px; font-size:1em;}
+
+        /* Services */
+        #services {padding:60px 20px; text-align:center; background-color:#fff;}
+        .services-grid {display:flex; flex-wrap:wrap; justify-content:center; gap:30px; margin-top:30px;}
+        .service {background-color:#ffe6f0; padding:30px 20px; border-radius:10px; width:250px; transition: transform 0.3s, box-shadow 0.3s;}
+        .service:hover {transform:translateY(-5px); box-shadow:0 5px 15px rgba(0,0,0,0.2);}
+        .service h3 {color:#ff1493;}
+
+        /* Footer */
+        footer {background-color:#ff1493; color:#fff; text-align:center; padding:20px 0;}
+
+        /* Responsive */
+        @media (max-width:768px) {
+            header nav {float:none; text-align:center; margin-top:10px;}
+            .services-grid {flex-direction:column; align-items:center;}
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="container">
+        <h1 class="logo">Vens Shipping Express</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="dashboard.html">Dashboard</a></li>
+                <li><a href="register.html">Register with us!</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<section class="hero">
+    <div class="container">
+        <h2>Fast, Reliable Shipping from the U.S. to Jamaica</h2>
+        <p>Your packages delivered safely and on time.</p>
+  </div>
+</section>
+
+<section id="services">
+    <div class="container">
+        <h2>Our Services</h2>
+        <div class="services-grid">
+            <div class="service">
+                <h3>Freight Forwarding</h3>
+                <p>We handle the logistics of shipping from the U.S. to Jamaica efficiently.</p>
+            </div>
+            <div class="service">
+                <h3>Customs Clearance</h3>
+                <p>Our team ensures all your packages clear customs smoothly.</p>
+            </div>
+            <div class="service">
+                <h3>Door-to-Door Delivery</h3>
+                <p>Receive your packages right at your doorstep with our reliable delivery service.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <div class="container">
+        <p>&copy; 2026 Vens Shipping Express. All rights reserved.</p>
+    </div>
+</footer>
+
+</body>
+</html>

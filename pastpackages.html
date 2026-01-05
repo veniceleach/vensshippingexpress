@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Past Packages - Vens Shipping Express</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #ffffff;
+            color: #333;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 900px;
+            margin: auto;
+        }
+
+        /* Header */
+        header {
+            background-color: #ff69b4;
+            padding: 15px 0;
+        }
+
+        .logo {
+            color: #fff;
+            font-size: 2em;
+            font-weight: bold;
+        }
+
+        nav {
+            float: right;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        nav ul li {
+            display: inline-block;
+            margin-left: 20px;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        /* Section */
+        #past-packages {
+            background-color: #ffe6f0;
+            padding: 40px 20px;
+            border-radius: 10px;
+            margin-top: 40px;
+        }
+
+        h2 {
+            text-align: center;
+            color: #ff1493;
+        }
+
+        p {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            padding: 12px;
+            border-bottom: 1px solid #ffb6c1;
+            text-align: center;
+        }
+
+        th {
+            background-color: #ff1493;
+            color: #fff;
+        }
+
+        tr:hover {
+            background-color: #ffb6c1;
+        }
+
+        .status {
+            font-weight: bold;
+            color: green;
+        }
+
+        .no-data {
+            text-align: center;
+            color: #ff1493;
+            font-size: 1.1em;
+            margin-top: 20px;
+        }
+
+        footer {
+            margin-top: 40px;
+            background-color: #ff1493;
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                float: none;
+                text-align: center;
+                margin-top: 10px;
+            }
+
+            table {
+                font-size: 0.9em;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="container">
+        <span class="logo">Vens Shipping Express</span>
+        <nav>
+            <ul>
+                <li><a href="dashboard.html">Dashboard</a></li>
+                <li><a href="packages.html">Packages</a></li>
+                <li><a href="invoice.html">Invoices</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<section id="past-packages" class="container">
+    <h2>Past Packages</h2>
+    <p>Below is a history of your delivered packages.</p>
+
+    <table id="pastTable" style="display:none;">
+        <thead>
+            <tr>
+                <th>Tracking Number</th>
+                <th>Merchant</th>
+                <th>Description</th>
+                <th>Weight (lbs)</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody id="pastBody"></tbody>
+    </table>
+
+    <div id="noPast" class="no-data">
+        You have no past packages.
+    </div>
+</section>
+
+<footer>
+    <div class="container">
+        <p>&copy; 2026 Vens Shipping Express. All rights reserved.</p>
+    </div>
+</footer>
+
+<script>
+    /*
+        Example data
+        Replace this later with backend or localStorage data
+    */
+    const pastPackages = [
+        {
+            tracking: "VSE123456",
+            merchant: "Amazon",
+            description: "Bluetooth Headphones",
+            weight: 3.2,
+            status: "Delivered"
+        },
+        {
+            tracking: "VSE789012",
+            merchant: "Shein",
+            description: "Clothing Items",
+            weight: 5.0,
+            status: "Completed"
+        }
+    ];
+
+    const table = document.getElementById("pastTable");
+    const body = document.getElementById("pastBody");
+    const noPast = document.getElementById("noPast");
+
+    if (pastPackages.length > 0) {
+        table.style.display = "table";
+        noPast.style.display = "none";
+
+        pastPackages.forEach(pkg => {
+            const row = document.createElement("tr");
+            row.innerHTML = `
+                <td>${pkg.tracking}</td>
+                <td>${pkg.merchant}</td>
+                <td>${pkg.description}</td>
+                <td>${pkg.weight}</td>
+                <td class="status">${pkg.status}</td>
+            `;
+            body.appendChild(row);
+        });
+    }
+</script>
+
+</body>
+</html>

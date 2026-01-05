@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pre-Alerts - Vens Shipping Express</title>
+    <style>
+        body {margin:0; font-family: Arial, sans-serif; background-color:#fff; color:#333;}
+        .container {width:90%; max-width:600px; margin:0 auto; text-align:center;}
+        a {text-decoration:none; color:#fff;}
+        h1,h2 {margin:0.5em 0;}
+
+        /* Header */
+        header {background-color:#ff69b4; padding:15px 0;}
+        header .logo {color:#fff; font-size:2em; display:inline-block; margin-left:10px;}
+        header nav {float:right;}
+        header nav ul {list-style:none; margin:0; padding:0;}
+        header nav ul li {display:inline-block; margin-left:20px;}
+        header nav ul li a {color:#fff; font-weight:bold;}
+
+        /* Pre-Alerts Form */
+        #prealerts {background-color:#ffe6f0; padding:60px 20px; border-radius:10px; margin-top:40px;}
+        form {display:flex; flex-direction:column; align-items:center;}
+        input, textarea {padding:12px; width:80%; margin:10px 0; border:none; border-radius:5px; font-size:1em;}
+        button {padding:15px 30px; border:none; border-radius:5px; background-color:#ff1493; color:#fff; font-weight:bold; cursor:pointer; font-size:1em;}
+        button:hover {background-color:#ff69b4;}
+
+        /* Footer */
+        footer {background-color:#ff1493; color:#fff; text-align:center; padding:20px 0; margin-top:40px;}
+
+        /* Responsive */
+        @media(max-width:768px){
+            header nav {float:none; text-align:center; margin-top:10px;}
+            input, textarea {width:100%;}
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="container">
+        <h1 class="logo">Vens Shipping Express</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="dashboard.html">Dashboard</a></li>
+                <li><a href="track.html">Track Shipment</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<section id="prealerts" class="container">
+    <h2>Pre-Alerts Submission</h2>
+    <p>Notify us about your incoming package before it arrives.</p>
+    <form action="#" method="post">
+        <input type="text" name="full-name" placeholder="Full Name" required>
+        <input type="text" name="merchant-name" placeholder="Merchant Name" required>
+        <input type="email" name="email" placeholder="Email Address" required>
+        <input type="text" name="tracking-number" placeholder="Tracking Number" required>
+        <input type="text" name="shipment-description" placeholder="Shipment Description" required>
+        <input type="date" name="expected-arrival" placeholder="Expected Arrival Date" required>
+        <button type="submit">Submit Pre-Alert</button>
+    </form>
+</section>
+
+<footer>
+    <div class="container">
+        <p>&copy; 2026 Vens Shipping Express. All rights reserved.</p>
+    </div>
+</footer>
+
+</body>
+</html>

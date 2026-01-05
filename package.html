@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Packages - Vens Shipping Express</title>
+    <style>
+        body {margin:0; font-family: Arial, sans-serif; background-color:#fff; color:#333;}
+        .container {width:90%; max-width:900px; margin:0 auto; text-align:center;}
+        a {text-decoration:none; color:#fff;}
+        h1,h2 {margin:0.5em 0;}
+
+        /* Header */
+        header {background-color:#ff69b4; padding:15px 0;}
+        header .logo {color:#fff; font-size:2em; display:inline-block; margin-left:10px;}
+        header nav {float:right;}
+        header nav ul {list-style:none; margin:0; padding:0;}
+        header nav ul li {display:inline-block; margin-left:20px;}
+        header nav ul li a {color:#fff; font-weight:bold;}
+
+        /* Packages Table */
+        #packages {background-color:#ffe6f0; padding:60px 20px; border-radius:10px; margin-top:40px;}
+        table {width:100%; border-collapse:collapse; margin-top:20px;}
+        th, td {padding:12px; border-bottom:1px solid #ffb6c1; text-align:center;}
+        th {background-color:#ff1493; color:#fff;}
+        tr:hover {background-color:#ffb6c1;}
+        .btn {padding:8px 15px; border:none; border-radius:5px; background-color:#ff1493; color:#fff; cursor:pointer;}
+        .btn:hover {background-color:#ff69b4;}
+        .no-packages {margin-top:20px; font-size:1.2em; color:#ff1493;}
+
+        /* Footer */
+        footer {background-color:#ff1493; color:#fff; text-align:center; padding:20px 0; margin-top:40px;}
+
+        /* Responsive */
+        @media(max-width:768px){
+            header nav {float:none; text-align:center; margin-top:10px;}
+            table, th, td {font-size:0.9em;}
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="container">
+        <h1 class="logo">Vens Shipping Express</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="dashboard.html">Dashboard</a></li>
+                <li><a href="track.html">Track Shipment</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<section id="packages" class="container">
+    <h2>My Packages</h2>
+    <p>Your current shipments are listed below:</p>
+
+    <!-- Table will show only if packages exist -->
+    <table id="packages-table" style="display:none;">
+        <thead>
+            <tr>
+                <th>Tracking Number</th>
+                <th>Merchant Name</th>
+                <th>Description</th>
+                <th>Weight (lbs)</th>
+                <th>Status</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody id="packages-body">
+            <!-- Dynamic rows will go here -->
+        </tbody>
+    </table>
+
+    <!-- Message if no packages -->
+    <div id="no-packages-msg" class="no-packages">
+        No packages found.
+    </div>
+</section>
+
+<footer>
+    <div class="container">
+        <p>&copy; 2026 Vens Shipping Express. All rights reserved.</p>
+    </div>
+</footer>
+
+<script>
+    // Example: packages data from customer (replace with real data later)
+    const packages = [
+        // Uncomment and add objects here when packages exist
+        // {trackingNumber: "TRK001", merchant: "Merchant A", description: "Electronics", weight: 5, status: "In Transit"},
+    ];
+
+    const table = document.getElementById('packages-table');
+    const tbody = document.getElementById('packages-body');
+    const noMsg = document.getElementById('no-packages-msg');
+
+    if(packages.length > 0){
+        table.style.display = 'table';
+        noMsg.style.display = 'none';
+        packages.forEach(pkg => {
+            const tr = document.createElement('tr');
+            tr.innerHTML = `
+                <td>${pkg.trackingNumber}</td>
+                <td>${pkg.merchant}</td>
+                <td>${pkg.description}</td>
+                <td>${pkg.weight}</td>
+                <td>${pkg.status}</td>
+                <td><button class="btn">Details</button></td>
+            `;
+            tbody.appendChild(tr);
+        });
+    }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Track Shipment - Vens Shipping Express</title>
+    <style>
+        body {margin:0; font-family: Arial, sans-serif; background-color:#fff; color:#333;}
+        .container {width:90%; max-width:600px; margin:0 auto; text-align:center;}
+        a {text-decoration:none; color:#fff;}
+        h1,h2 {margin:0.5em 0;}
+
+        /* Header */
+        header {background-color:#ff69b4; padding:15px 0;}
+        header .logo {color:#fff; font-size:2em; display:inline-block; margin-left:10px;}
+        header nav {float:right;}
+        header nav ul {list-style:none; margin:0; padding:0;}
+        header nav ul li {display:inline-block; margin-left:20px;}
+
+        /* Tracking Form */
+        #tracking {background-color:#ffe6f0; padding:100px 20px;}
+        .tracking-form input {padding:15px; width:60%; border:none; border-radius:5px; margin-right:10px; font-size:1em;}
+        .tracking-form button {padding:15px 25px; border:none; border-radius:5px; background-color:#ff1493; color:#fff; font-weight:bold; cursor:pointer; font-size:1em;}
+        .tracking-form button:hover {background-color:#ff69b4;}
+
+        /* Footer */
+        footer {background-color:#ff1493; color:#fff; text-align:center; padding:20px 0;}
+
+        /* Responsive */
+        @media(max-width:768px){
+            header nav {float:none; text-align:center; margin-top:10px;}
+            .tracking-form input {width:100%; margin-bottom:15px;}
+            .tracking-form button {width:100%;}
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="container">
+        <h1 class="logo">Vens Shipping Express</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="dashboard.html">Dashboard</a></li>
+                <li><a href="track.html">Track Shipment</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<section id="tracking">
+    <div class="container">
+        <h2>Track Your Shipment</h2>
+        <form action="#" method="post" class="tracking-form">
+            <input type="text" name="tracking-number" placeholder="Enter Tracking Number" required>
+            <button type="submit">Track</button>
+        </form>
+    </div>
+</section>
+
+<footer>
+    <div class="container">
+        <p>&copy; 2026 Vens Shipping Express. All rights reserved.</p>
+    </div>
+</footer>
+
+</body>
+</html>

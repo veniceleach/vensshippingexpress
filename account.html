@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Account - Vens Shipping Express</title>
+    <style>
+        body {margin:0; font-family: Arial, sans-serif; background-color:#fff; color:#333;}
+        .container {width:90%; max-width:600px; margin:0 auto; text-align:center;}
+        a {text-decoration:none; color:#fff;}
+        h1,h2 {margin:0.5em 0;}
+
+        /* Header */
+        header {background-color:#ff69b4; padding:15px 0;}
+        header .logo {color:#fff; font-size:2em; display:inline-block; margin-left:10px;}
+        header nav {float:right;}
+        header nav ul {list-style:none; margin:0; padding:0;}
+        header nav ul li {display:inline-block; margin-left:20px;}
+        header nav ul li a {color:#fff; font-weight:bold;}
+
+        /* Account Form */
+        #account {background-color:#ffe6f0; padding:60px 20px; border-radius:10px; margin-top:40px; text-align:left;}
+        form {display:flex; flex-direction:column; align-items:center;}
+        label {align-self:flex-start; margin-left:10%; margin-top:10px; font-weight:bold; color:#ff1493;}
+        input {padding:12px; width:80%; margin:5px 0 15px 0; border:none; border-radius:5px; font-size:1em;}
+        button {padding:15px 30px; border:none; border-radius:5px; background-color:#ff1493; color:#fff; font-weight:bold; cursor:pointer; font-size:1em;}
+        button:hover {background-color:#ff69b4;}
+
+        /* Footer */
+        footer {background-color:#ff1493; color:#fff; text-align:center; padding:20px 0; margin-top:40px;}
+
+        /* Responsive */
+        @media(max-width:768px){
+            header nav {float:none; text-align:center; margin-top:10px;}
+            input {width:100%;}
+            label {margin-left:5%;}
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="container">
+        <h1 class="logo">Vens Shipping Express</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="dashboard.html">Dashboard</a></li>
+                <li><a href="track.html">Track Shipment</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<section id="account" class="container">
+    <h2>Manage Account</h2>
+    <p>Update your account information below.</p>
+    <form id="account-form">
+        <label for="full-name">Full Name</label>
+        <input type="text" id="full-name" name="full-name" placeholder="Enter your full name" required>
+
+        <label for="email">Email Address</label>
+        <input type="email" id="email" name="email" placeholder="Enter your email" required>
+
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" placeholder="Enter new password" required>
+
+        <label for="confirm-password">Confirm Password</label>
+        <input type="password" id="confirm-password" name="confirm-password" placeholder="Confirm new password" required>
+
+        <button type="submit">Update Account</button>
+    </form>
+</section>
+
+<footer>
+    <div class="container">
+        <p>&copy; 2026 Vens Shipping Express. All rights reserved.</p>
+    </div>
+</footer>
+
+<script>
+    // Handle account form submission (currently just alerts)
+    const accountForm = document.getElementById('account-form');
+    accountForm.addEventListener('submit', function(e){
+        e.preventDefault();
+        const fullName = this['full-name'].value.trim();
+        const email = this['email'].value.trim();
+        const password = this['password'].value.trim();
+        const confirmPassword = this['confirm-password'].value.trim();
+
+        if(password !== confirmPassword){
+            alert("Passwords do not match!");
+            return;
+        }
+
+        // Here you would normally send data to the backend
+        alert(Account updated!\nName: ${fullName}\nEmail: ${email});
+        this.reset();
+    });
+</script>
+
+</body>
+</html>
